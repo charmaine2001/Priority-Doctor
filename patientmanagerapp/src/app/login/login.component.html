@@ -1,0 +1,53 @@
+<!-- <h2>Login</h2>
+<form (ngSubmit)="login()">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" [(ngModel)]="username" name="username" required />
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" [(ngModel)]="password" name="password" required />
+  </div>
+  <button type="submit">Login</button>
+</form> -->
+
+
+<div class="login-container">
+  <h2>Login</h2>
+  <form (ngSubmit)="onLogin()" [formGroup]="loginForm">
+    <!-- Username Field -->
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" formControlName="username" placeholder="Enter your username" required>
+      <small *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
+        Username is required.
+      </small>
+    </div>
+
+    <!-- Password Field -->
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password" placeholder="Enter your password" required>
+      <small *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        Password is required.
+      </small>
+    </div>
+
+    <!-- Login Button -->
+    <button class="button" type="submit" [disabled]="loginForm.invalid">Login</button>
+
+    <!-- Sign-In Option -->
+    <p>Don’t have an account? 
+      <a [routerLink]="'/register'">Sign Up</a>
+    </p>
+  </form>
+
+  <!-- Cancel Button -->
+  <div class="cancel">
+    <button class="button" (click)="onCancel()" [routerLink]="'/home'">Cancel</button>
+  </div>
+
+  <!-- Error Message -->
+  <p *ngIf="error" class="error-message">{{ error }}</p>
+</div>
+

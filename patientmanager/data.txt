@@ -1,0 +1,36 @@
+{
+"name": "Charmaine Saxon",
+"email": "charmie.saxon@gmail.com",
+"phone": "078834523",
+"gender": "female",
+"address": "66 Jason St"
+}
+{
+"name": "Nancy Fox",
+"email": "nancy.fox@gmail.com",
+"phone": "078653274",
+"gender": "female",
+"address": "22 Dixie St"
+}
+{
+"name": "Kelvin Camels",
+"email": "kelvin.camels@gmail.com",
+"phone": "078832456",
+"gender": "male",
+"address": "234 Livers St"
+}
+{
+"name": "Cameroon Black",
+"email": "cam.black@gmail.com",
+"phone": "0788848593",
+"gender": "female",
+"address": "56 Kirk St"
+}
+{
+"name": "Jim Stark",
+"email": "stark@gmail.com",
+"phone": "078876543",
+"gender": "male",
+"address": "86 Mine St"
+}
+

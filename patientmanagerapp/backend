@@ -1,0 +1,39 @@
+1. Update the Backend to Handle User Authentication
+Since you currently have a backend that stores patient information but not login credentials, you need to:
+
+Create a users table in your MySQL database with the following fields:
+id (Primary Key, Auto-Increment)
+username (Unique, VARCHAR)
+email (Unique, VARCHAR)
+password (VARCHAR, hashed for security)
+verification_code (VARCHAR, optional during registration)
+is_verified (BOOLEAN, default false)
+Example Table Creation
+sql
+Copy code
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  verification_code VARCHAR(6),
+  is_verified BOOLEAN DEFAULT FALSE
+);
+2. Backend Endpoint for Registration and Email Verification
+Add these routes to your backend:
+
+POST /register: Save user details (with a verification code) and send an email.
+POST /verify: Verify the user with the provided code and mark them as is_verified.
+Example Workflow:
+User submits the registration form.
+Backend saves the details with a randomly generated verification_code.
+Email is sent to the user with the code.
+User submits the code for verification.
+On success, mark is_verified = true and allow login.
+Example Verification Code Generation
+javascript
+Copy code
+function generateVerificationCode() {
+  return Math.floor(100000 + Math.random() * 900000).toString(); // Generates a 6-digit code
+}
+

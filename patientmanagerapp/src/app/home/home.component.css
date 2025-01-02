@@ -1,0 +1,139 @@
+body{
+  background-image: url('../../assets/images/1.jpeg');
+  background-color: black;
+   
+  
+}
+
+.cont{
+  height: 1000px;
+  background-color: rgba(14, 5, 11, 0.589);
+  margin-top: 100px;
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center; /* Vertically center the content */
+  align-items: center; /* Horizontally center the content */
+  /* /* Full height of the viewport */
+  text-align: center;
+  
+}
+
+h1 {
+  font-size: 8rem;
+  margin-bottom: 40px;
+  text-align: center;
+  color: rgb(170, 174, 202);
+  
+}
+
+h2{
+  font-size: 5rem;
+  text-align: center;
+  color: rgb(170, 174, 202);
+}
+
+p{
+  font-size: 1rem;
+  text-align: center;
+  color: rgb(170, 174, 202);
+}
+
+.landing-page {
+    height: 100vh;             /* Full viewport height */
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Navbar Styling */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    height: 60px;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Main Content Styling */
+  .main-content {
+    text-align: center;
+    color: white;
+    padding: 20px;
+  }
+  
+  
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 20px;
+  }
+  
+  .cta-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .nav-links {
+      font-size: 14px;
+      gap: 10px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .cta-button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1.2rem;
+      color: white;
+      background-color: #007bff; /* Blue background */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      margin-bottom: 1rem; /* Space between button and login text */
+    }
+
+    .cta-button:hover {
+      background-color: #0b519c; /* Darker blue on hover */
+    }
+
+    .login-link {
+      font-size: 1rem;
+      color: white;
+      text-decoration: underline; /* Makes it look like a link */
+      cursor: pointer;
+    }
+
+    
+  }
+
+  

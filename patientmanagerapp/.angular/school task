@@ -1,0 +1,120 @@
+# #import libraries
+# import pandas as pd
+# from sklearn.model_selection import train_test_split
+# from sklearn.preprocessing import StandardScaler
+# from sklearn.ensemble import RandomForestClassifier
+# from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+# import matplotlib.pyplot as plt
+# import seaborn as sns
+
+# #load the datasets
+# # Paths to the datasets
+# red_wine_path = '/mnt/data/winequality-red.csv'
+# white_wine_path = '/mnt/data/winequality-white.csv'
+
+# # Read the datasets
+# red_wine = pd.read_csv(red_wine_path, sep=';')
+# white_wine = pd.read_csv(white_wine_path, sep=';')
+
+# #preprocessing
+# # Add a wine_type column: 0 for red, 1 for white
+# red_wine['wine_type'] = 0
+# white_wine['wine_type'] = 1
+
+# # Combine the datasets
+# combined_data = pd.concat([red_wine, white_wine], axis=0, ignore_index=True)
+
+# # Separate features and target
+# X = combined_data.drop(columns='wine_type')  # Features
+# y = combined_data['wine_type']              # Target
+
+# # Standardize the features
+# scaler = StandardScaler()
+# X_scaled = scaler.fit_transform(X)
+
+# # Split the data into training and testing sets (80-20 split)
+# X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42, stratify=y)
+
+
+# #train the model
+# # Train a Random Forest Classifier
+# rf_model = RandomForestClassifier(random_state=42)
+# rf_model.fit(X_train, y_train)
+
+
+# #evaluate the model
+# # Make predictions
+# y_pred = rf_model.predict(X_test)
+
+# # Evaluate the model
+# accuracy = accuracy_score(y_test, y_pred)
+# class_report = classification_report(y_test, y_pred)
+# conf_matrix = confusion_matrix(y_test, y_pred)
+
+# # Print evaluation metrics
+# print("Accuracy:", accuracy)
+# print("Classification Report:\n", class_report)
+
+# # Plot confusion matrix
+# plt.figure(figsize=(8, 6))
+# sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=['Red', 'White'], yticklabels=['Red', 'White'])
+# plt.title('Confusion Matrix')
+# plt.xlabel('Predicted')
+# plt.ylabel('Actual')
+# plt.show()
+
+# #save the model
+# import joblib
+
+# # Save the trained Random Forest model
+# model_path = '/mnt/data/wine_type_classifier_rf.pkl'
+# joblib.dump(rf_model, model_path)
+
+# print("Model saved at:", model_path)
+
+
+
+# #STEPS IN DETAIL
+# To classify wine quality as red or white using supervised machine learning, we will combine both datasets, process them, and build a classification model. I'll proceed with the following steps:
+
+# Load the data: Read the uploaded CSV files for red and white wine.
+# Preprocess the data:
+# Combine the datasets, adding a new column to indicate whether a wine is red or white.
+# Normalize or standardize the features for better model performance.
+# Split the data: Divide the combined dataset into training and testing sets.
+# Train the model: Use a supervised machine learning algorithm (e.g., Random Forest, Gradient Boosting) to classify the wine.
+# Evaluate the model: Assess the performance using metrics like accuracy, precision, recall, and a confusion matrix.
+# Visualize results: If appropriate, display the confusion matrix and feature importance.
+# Let me begin by loading and examining the datasets.
+
+# The datasets have been loaded successfully. Here are the details:
+
+# Red Wine Dataset:
+# Number of Rows: 1599
+# Columns: 12 (11 features and 1 target column, quality)
+# White Wine Dataset:
+# Number of Rows: 4898
+# Columns: 12 (11 features and 1 target column, quality)
+# The datasets share the same structure and column names. We'll proceed as follows:
+
+# Add a new column, wine_type, to label the red wine as 0 and the white wine as 1.
+# Combine the datasets into one.
+# Normalize/standardize the features.
+# Split the data into training and testing sets.
+# Let me perform these steps. ​​
+
+# The dataset has been successfully prepared:
+
+# Training set: 5197 samples
+# Testing set: 1300 samples
+# Features: 12 (all original columns except the wine_type label)
+# Next, I'll train a supervised machine learning model to classify wine types. I'll use a Random Forest classifier for its robustness and interpretability. Let me proceed. ​​
+
+# Output image
+# The Random Forest classifier performed exceptionally well on the test dataset:
+
+# Accuracy: 99.62%
+# Classification Report:
+# Precision, Recall, and F1-score are close to 1.0 for both red (label 0) and white (label 1) wines.
+# Confusion Matrix:
+# Very few misclassifications, as shown in the heatmap.
